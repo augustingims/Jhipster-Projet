@@ -1,0 +1,121 @@
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs-main">
+            <ol class="breadcrumb">
+                <li><a href="#/">Home</a></li>
+                <li class="active">ordinateur</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{ordinateur.name}}
+                <small>{{ordinateur.type}}</small>
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-6">
+            <img  class="img-rounded img-responsive" data-ng-src="{{'data:image/*;base64,' + ordinateur.image}}" style="height: auto;width: 600px"  ng-if="ordinateur.image"/>
+            <br>
+            <div class="row">
+                <div class="col-sm-3 col-md-3">
+                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp;<a href="#">Sign in</a>
+                </div>
+                <div class="col-sm-9 col-md-9">
+                    <span class="glyphicon glyphicon-pencil"></span>&nbsp;<a href="">20 Comments</a>&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-time">&nbsp;</span> August 24,2013 9:00 PM
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+            <a class="btn btn-primary btn-lg" href="#" ><span class="text-capitalize">{{ordinateur.prix}} FCFA</span></a>
+
+                <span class="btn btn-primary btn-lg" ng-click="saveshop()"><i class="glyphicon glyphicon-shopping-cart" ></i></span>
+            </div>
+            <h3>Description</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Carateristique</th>
+                        <th>Valeur de Carateristique</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>CPU</td>
+                        <td>{{ordinateur.cpu}}</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>{{ordinateur.ram}}</td>
+                    </tr>
+                    <tr>
+                        <td>Lecteur</td>
+                        <td>{{ordinateur.lecteur}}</td>
+                    </tr>
+                    <tr>
+                        <td>Graveur</td>
+                        <td>{{ordinateur.graveur}}</td>
+                    </tr>
+                    <tr>
+                        <td>Bluetooth</td>
+                        <td>{{ordinateur.bluetooth}}</td>
+                    </tr>
+                    <tr>
+                        <td>Wifi</td>
+                        <td>{{ordinateur.wifi}}</td>
+                    </tr>
+                    <tr>
+                        <td>Carte Graphique</td>
+                        <td>{{ordinateur.cartegraphique}}</td>
+                    </tr>
+                    <tr>
+                        <td>Disque Dur</td>
+                        <td>{{ordinateur.dd}}</td>
+                    </tr>
+                    <tr>
+                        <td>Taille Ecran</td>
+                        <td>{{ordinateur.tailleecran}}</td>
+                    </tr>
+                    <tr>
+                        <td>Webcam</td>
+                        <td>{{ordinateur.webcam}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h3 class="page-header">Commentaire</h3>
+        </div>
+
+        <div class="col-md-8">
+            <form>
+                <div class="col-md-6 ">
+                    <input type="text" class="form-control" placeholder="Name"><br>
+                    <input type="text" class="form-control" placeholder="Email"><br>
+                    <input type="text" class="form-control" placeholder="Phone"><br>
+                </div>
+                <div class="col-md-6 ">
+                    <textarea style="height: 150px" class="form-control" placeholder="Message" required></textarea>
+                </div>
+                <div class="clearfix"></div>
+                    <input type="submit" class="form-control" value="SUBMIT">
+            </form>
+            <br>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    </div>
+</div>
+
+

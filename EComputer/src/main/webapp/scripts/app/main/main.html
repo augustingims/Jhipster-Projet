@@ -1,0 +1,71 @@
+
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-responsive img-rounded" src="../../assets/images/computer.png" alt="">
+    </div>
+    <!-- /.col-md-8 -->
+    <div class="col-md-4">
+        <h1>E-Computer Shop</h1>
+        <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>
+        <a class="btn btn-primary btn-lg" href="#">Action!</a>
+    </div>
+    <!-- /.col-md-4 -->
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="well text-center">
+            Bienvenu sur notre site E-Computer. faitez vos choix d'ordinateur et Achetez le.
+        </div>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div ng-repeat="ordinateur in ordinateurs" class="row" ng-if="$index % 4 == 0" >
+     <!--{{'data:image/*;base64,' + imageItems[$index].img}}-->
+     <article class="col-xs-12 col-sm-6 col-md-3 overlay" ng-show="ordinateurs[$index]">
+         <div class="panel panel-default">
+             <div class="">
+                 <a href="#/ordinateur/{{ordinateurs[$index].id}}" title=""
+                    class="zoom" data-title="">
+                     <img  data-ng-src="http://127.0.0.1:8080/api/ordinateur/getImg/{{ordinateurs[$index].id}}" style="max-height: 197px; min-height: 165px"/>
+                 </a>
+             </div>
+         </div>
+     </article>
+
+     <article class="col-xs-12 col-sm-6 col-md-3 overlay" ng-show="ordinateurs[$index+1]">
+         <div class="panel panel-default">
+             <div class="fifth-effect">
+                 <a href="#/ordinateur/{{ordinateurs[$index+1].id}}" title=""
+
+                    class="zoom" data-title="Amazing Nature">
+                     <img data-ng-src="http://127.0.0.1:8080/api/ordinateur/getImg/{{ordinateurs[$index+1].id}}" style="max-height: 197px; min-height: 165px"  />
+
+                 </a>
+             </div>
+         </div>
+     </article>
+     <article class="col-xs-12 col-sm-6 col-md-3 overlay" ng-show="ordinateurs[$index+2]">
+         <div class="panel panel-default">
+             <div class="fifth-effect">
+                 <a href="#/ordinateur/{{ordinateurs[$index+2].id}}" title=""
+                    class="zoom" data-title="" data-footer="The beauty of nature" data-type="image"
+                    data-toggle="lightbox">
+                     <img data-ng-src="http://127.0.0.1:8080/api/ordinateur/getImg/{{ordinateurs[$index+2].id}}" style="max-height: 197px; min-height: 165px" />
+                 </a>
+             </div>
+         </div>
+     </article>
+     <article class="col-xs-12 col-sm-6 col-md-3 overlay" ng-show="ordinateurs[$index+3]">
+         <div class="panel panel-default">
+             <div class="fifth-effect">
+                 <a href="#/ordinateur/{{ordinateurs[$index+3].id}}" title=""
+                    class="zoom" data-title=" " data-footer="" data-type="image"
+                    data-toggle="lightbox">
+                     <img data-ng-src="http://127.0.0.1:8080/api/ordinateur/getImg/{{ordinateurs[$index+3].id}}" style="max-height: 197px; min-height: 165px" />
+                 </a>
+             </div>
+         </div>
+     </article>
+ </div>
+ </div>

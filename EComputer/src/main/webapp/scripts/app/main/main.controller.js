@@ -13,7 +13,7 @@ angular.module('devbridgeApp')
 
         $scope.ordinateurs = [];
         $scope.loadAll = function () {
-                $http.get('http://127.0.0.1:8080/api/ordinateurs').success(function(response){
+                $http.get('api/ordinateurs').success(function(response){
                     $scope.ordinateurs = response;
                     console.log($scope.ordinateurs);
                 }).error(function(reason){

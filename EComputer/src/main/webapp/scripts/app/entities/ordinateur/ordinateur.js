@@ -75,21 +75,19 @@ angular.module('devbridgeApp')
                 data: {
                     authorities: ['ROLE_USER'],
                 },
-                onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
-                    $modal.open({
+                views: {
+                    'content@': {
                         templateUrl: 'scripts/app/entities/ordinateur/ordinateur-dialog.html',
-                        controller: 'OrdinateurDialogController',
-                        size: 'lg',
-                        resolve: {
-                            entity: ['Ordinateur', function(Ordinateur) {
-                                return Ordinateur.get({id : $stateParams.id});
-                            }]
-                        }
-                    }).result.then(function(result) {
-                        $state.go('ordinateur', null, { reload: true });
-                    }, function() {
-                        $state.go('^');
-                    })
-                }]
-            });
+                        controller: 'OrdinateurDialogController'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('ordinateur');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams','Ordinateur', function($stateParams,Ordinateur) {
+                        return Ordinateur.get({id : $stateParams.id});
+                    }]
+            }});
     });

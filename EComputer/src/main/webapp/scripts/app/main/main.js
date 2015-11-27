@@ -37,6 +37,9 @@ angular.module('devbridgeApp')
                     mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                         $translatePartialLoader.addPart('main');
                         return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Commentaire', function($stateParams, Commentaire) {
+                        return {};
                     }]
                 }
             });

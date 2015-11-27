@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('devbridgeApp').controller('OrdinateurDialogController',
-    ['$scope', '$stateParams', 'entity', 'Ordinateur',
-        function($scope, $stateParams, entity, Ordinateur) {
+    ['$scope', '$stateParams', 'entity', 'Ordinateur', '$state',
+        function($scope, $stateParams, entity, Ordinateur, $state) {
 
         $scope.ordinateur = entity;
         $scope.load = function(id) {
@@ -14,6 +14,7 @@ angular.module('devbridgeApp').controller('OrdinateurDialogController',
         var onSaveFinished = function (result) {
             $scope.$emit('devbridgeApp:ordinateurUpdate', result);
             $scope.ordinateur = {};
+            $state.go('ordinateur');
         };
 
         $scope.save = function () {
@@ -23,7 +24,9 @@ angular.module('devbridgeApp').controller('OrdinateurDialogController',
                 Ordinateur.save($scope.ordinateur, onSaveFinished);
             }
         };
-
+          $scope.clear = function(){
+              $scope.ordinateur = {};
+          }
 
             $scope.byteSize = function (base64String) {
                 if (!angular.isString(base64String)) {

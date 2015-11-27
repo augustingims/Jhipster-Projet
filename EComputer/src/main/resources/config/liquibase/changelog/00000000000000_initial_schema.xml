@@ -142,6 +142,18 @@
             <column name="event_type" type="varchar(255)"/>
         </createTable>
 
+        <createTable tableName="PAYMENT">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="namecard" type="varchar(50)" />
+            <column name="numbercard" type="varchar(50)" />
+            <column name="mois" type="varchar(50)" />
+            <column name="annee" type="varchar(50)" />
+            <column name="cardcv" type="varchar(50)" />
+            <column name="login" type="varchar(50)" />
+        </createTable>
+
         <createTable tableName="PANIERSHOP">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
                 <constraints primaryKey="true" nullable="false"/>
@@ -150,6 +162,19 @@
             <column name="prix" type="decimal" />
             <column name="date" type="timestamp" defaultValueDate="${now}" />
             <column name="auteur" type="varchar(50)" />
+        </createTable>
+
+        <createTable tableName="COMMENTAIRE">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="image" type="bigint" />
+            <column name="pseudo" type="varchar(50)" />
+            <column name="email" type="varchar(50)" />
+            <column name="phone" type="varchar(50)" />
+            <column name="message" type="varchar(500)" />
+            <column name="date" type="timestamp" defaultValueDate="${now}" />
+            <column name="login" type="varchar(100)" />
         </createTable>
 
         <createTable tableName="JHI_PERSISTENT_AUDIT_EVT_DATA">

@@ -1,21 +1,22 @@
 'use strict';
 
 angular.module('devbridgeApp')
-    .controller('paniershopController', function ($scope,$http) {
+    .controller('paniershopController', function ($scope, $http, $state) {
 
         $scope.paniershops = [];
 
         $scope.loadAll = function () {
-            $http.get('http://127.0.0.1:8080/api/panieruser').success(function(response){
+            $http.get('api/panieruser').success(function(response){
                 $scope.paniershops = response;
-                $scope.$emit('devbridgeApp:panieruser', response);
             }).error(function(reason){
                 console.log(reason);
             });
         };
         $scope.loadAll();
 
-
+        $scope.payer = function(){
+            $state.go('payment');
+        };
         $scope.total = function(){
             $scope.prixtotal = 0;
             for(var i=0;i< $scope.paniershops.length;i++){
@@ -25,8 +26,9 @@ angular.module('devbridgeApp')
         };
 
         $scope.delete = function (item) {
-            $http.post('http://127.0.0.1:8080/api/delete/'+item).success(function(response){
-                $scope.paniershops = response;
+            $http.post('api/delete/'+item).success(function(response){
+                $scope.$emit('devbridgeApp:deleteshop', response);
+                console.log(response);
                 $scope.loadAll();
             }).error(function(reason){
                 console.log(reason);
@@ -35,8 +37,9 @@ angular.module('devbridgeApp')
 
         $scope.vider = function () {
             for(var i=0;i< $scope.paniershops.length;i++){
-                $http.post('http://127.0.0.1:8080/api/delete/' +$scope.paniershops[i].id).success(function(response){
-                    $scope.paniershops = response;
+                $http.post('api/delete/' +$scope.paniershops[i].id).success(function(response){
+                    $scope.$emit('devbridgeApp:vidershop', response);
+                    console.log(response);
                 }).error(function(reason){
                     console.log(reason);
                 });

@@ -14,8 +14,16 @@ angular.module('devbridgeApp')
             $scope.nbreshop = response;
         });
 
+        $rootScope.$on('devbridgeApp:vidershop', function(event, response) {
+            $scope.nbreshop = 0;
+        });
+
+        $rootScope.$on('devbridgeApp:deleteshop', function(event, response) {
+            $scope.nbreshop = $scope.nbreshop - 1;
+        });
+
         $scope.nbreshops = function () {
-            $http.get('http://127.0.0.1:8080/api/nbreshop').success(function(response){
+            $http.get('api/nbreshop').success(function(response){
                 $scope.nbreshop = response;
             }).error(function(reason){
                 console.log(reason);

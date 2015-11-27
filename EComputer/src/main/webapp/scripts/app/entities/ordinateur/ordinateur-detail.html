@@ -36,6 +36,14 @@
             </tr>
             <tr>
                 <td>
+                    <span>Marque</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{ordinateur.marque}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span translate="devbridgeApp.ordinateur.ram">Ram</span>
                 </td>
                 <td>
@@ -104,6 +112,22 @@
                 </td>
                 <td>
                     <span class="form-control-static">{{ordinateur.webcam}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Prix</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{ordinateur.prix}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Image</span>
+                </td>
+                <td>
+                    <img class="img-responsive img-rounded"  data-ng-src="{{'data:image/*;base64,' + ordinateur.image}}" style="height: 100px;width: 100px"  />
                 </td>
             </tr>
             </tbody>

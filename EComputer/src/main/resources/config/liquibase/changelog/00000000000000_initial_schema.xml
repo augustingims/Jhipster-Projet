@@ -150,6 +150,7 @@
             <column name="numbercard" type="varchar(50)" />
             <column name="mois" type="varchar(50)" />
             <column name="annee" type="varchar(50)" />
+            <column name="montant" type="decimal" />
             <column name="cardcv" type="varchar(50)" />
             <column name="login" type="varchar(50)" />
         </createTable>

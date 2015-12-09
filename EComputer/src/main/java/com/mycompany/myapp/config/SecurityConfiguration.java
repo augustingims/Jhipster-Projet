@@ -8,6 +8,7 @@ import org.springframework.core.env.Environment;
 
 import org.springframework.data.repository.query.spi.EvaluationContextExtension;
 import org.springframework.data.repository.query.spi.EvaluationContextExtensionSupport;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.access.expression.SecurityExpressionRoot;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -118,7 +119,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/ordinateurs/**").permitAll()
             .antMatchers("/api/nbrescom/**").permitAll()
             .antMatchers("/api/comforimage/**").permitAll()
-            //.antMatchers("/api/payment").permitAll()
+            .antMatchers("/api/commentaire/**").permitAll()
+            .antMatchers(HttpMethod.POST,"/api/commentaire").permitAll()
+            .antMatchers("/api/commentaire").permitAll()
+            .antMatchers("/api/payment").permitAll()
             .antMatchers("/api/account/reset_password/init").permitAll()
             .antMatchers("/api/account/reset_password/finish").permitAll()
             .antMatchers("/api/logs/**").hasAuthority(AuthoritiesConstants.ADMIN)

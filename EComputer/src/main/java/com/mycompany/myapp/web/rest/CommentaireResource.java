@@ -74,6 +74,16 @@ public class CommentaireResource {
         return commentaire;
     }
     /**
+     * GET  /ordinateurs -> get all the ordinateurs.
+     */
+    @RequestMapping(value = "/commentaire/findAll",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Commentaire> getAllOrdinateurs() {
+        return commentaireRepository.findAll();
+    }
+    /**
      * GET
      */
     @RequestMapping(value = "/comforimage/{image}",
@@ -97,7 +107,7 @@ public class CommentaireResource {
         Long nbre = null;
         commentaire = commentaireRepository.findByImageEquals(image);
         for(int i=0;i<commentaire.size();i++){
-            nbre = commentaireRepository.countById(commentaire.get(i).getId());
+            nbre = commentaireRepository.countByImage(commentaire.get(i).getImage());
         }
         return nbre;
     }

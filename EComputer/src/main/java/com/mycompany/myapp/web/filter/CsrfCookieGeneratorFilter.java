@@ -19,6 +19,11 @@ public class CsrfCookieGeneratorFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         // Spring put the CSRF token in session attribute "_csrf"
         CsrfToken csrfToken = (CsrfToken) request.getAttribute("_csrf");
+       /** response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+        response.setHeader("Access-Control-Max-Age", "86400"); // 24 Hours
+        response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-auth-token");*/
 
         // Send the cookie only if the token has changed
         String actualToken = request.getHeader("X-CSRF-TOKEN");

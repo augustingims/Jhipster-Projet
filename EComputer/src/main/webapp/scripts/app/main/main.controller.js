@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('devbridgeApp')
-    .controller('MainController', function ($scope, Principal, $http) {
+    .controller('MainController', function ($scope, Principal, $http, $location) {
         Principal.identity().then(function(account) {
             $scope.account = account;
             $scope.isAuthenticated = Principal.isAuthenticated;
@@ -9,7 +9,7 @@ angular.module('devbridgeApp')
 
         $scope.getImg = function(id){
             console.log('id: '+id);
-        }
+        };
 
         $scope.ordinateurs = [];
         $scope.loadAll = function () {
@@ -22,6 +22,15 @@ angular.module('devbridgeApp')
 
         };
         $scope.loadAll();
+
+        $scope.selectItem = function(name){
+            $http.get('api/ordinateur/'+name).success(function(response){
+                $location.path('/ordinateur/'+response);
+                console.log(response);
+            }).error(function(reason){
+                console.log(reason);
+            });
+        };
 
         angular.element(document).ready(function() {
             angular.element('i.glyphicon-thumbs-up, i.glyphicon-thumbs-down').click(function(){

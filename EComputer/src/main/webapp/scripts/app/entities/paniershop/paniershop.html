@@ -1,18 +1,13 @@
 <div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <button class="btn btn-primary btn-lg" ng-click="vider()">
                     <span class="glyphicon glyphicon-floppy-remove"></span><span>Vider</span>
                 </button>
             </div>
             <div class="col-md-6">
-                Clique pour avoir ton Montan <a class="btn btn-primary btn-lg" href="#" ng-click="total()"><span class="text-capitalize">{{prixtotal}} FCFA</span></a>
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-primary btn-lg" ng-click="payer()">
-                <span>Payer</span>
-                </button>
+                Cliquez pour avoir votre Montant <a class="btn btn-primary btn-lg" href="#" ng-click="total()"><span class="text-capitalize">{{prixtotal}} FCFA</span></a>
             </div>
         </div>
     </div>
@@ -27,6 +22,7 @@
                 <th>Prix</th>
                 <th>Date</th>
                 <th>Auteur</th>
+                <th></th>
                 <th></th>
             </tr>
             </thead>
@@ -44,8 +40,13 @@
                 <td>
                     <button type="submit"
                             ng-click="delete(panier.id)"
-                            class="btn btn-danger btn-sm">
+                            class="btn btn-danger btn-lg">
                         <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-primary btn-lg" ng-click="payer(panier.prix)">
+                        <span>Pay Now</span>
                     </button>
                 </td>
             </tr>

@@ -11,6 +11,6 @@ public interface CommentaireRepository extends JpaRepository<Commentaire,Long> {
 
     List<Commentaire> findByLoginEquals(String login);
     List<Commentaire> findByImageEquals(Long image);
-    Long countById(Long id);
+    Long countByImage(Long image);
 
 }

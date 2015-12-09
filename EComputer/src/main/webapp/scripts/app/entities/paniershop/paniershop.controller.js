@@ -14,8 +14,10 @@ angular.module('devbridgeApp')
         };
         $scope.loadAll();
 
-        $scope.payer = function(){
+        $scope.payer = function(prix){
+            console.log(prix);
             $state.go('payment');
+            $scope.$emit('devbridgeApp:prix', prix);
         };
         $scope.total = function(){
             $scope.prixtotal = 0;

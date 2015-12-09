@@ -11,5 +11,6 @@ import java.util.List;
 public interface OrdinateurRepository extends JpaRepository<Ordinateur,Long> {
 
     public Ordinateur findById(Long id);
+    Ordinateur findByNameEquals(String name);
 
 }

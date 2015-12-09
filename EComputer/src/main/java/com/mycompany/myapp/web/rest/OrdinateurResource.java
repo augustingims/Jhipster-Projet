@@ -84,6 +84,20 @@ public class OrdinateurResource {
     }
 
     /**
+     * GET  /ordinateur/:name -> get id of the ordinateurs.
+     */
+    @RequestMapping(value = "/ordinateur/{name}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public Long getIdOrdinateur(@PathVariable String name) {
+        log.debug("REST request to get id of the Ordinateurs");
+        Ordinateur ordinateur = ordinateurRepository.findByNameEquals(name);
+        Long id = ordinateur.getId();
+        return id;
+    }
+
+    /**
      * GET  /ordinateurs/:id -> get the "id" ordinateur.
      */
     @RequestMapping(value = "/ordinateurs/{id}",

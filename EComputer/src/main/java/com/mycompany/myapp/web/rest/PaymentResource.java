@@ -69,10 +69,10 @@ public class PaymentResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public List<Payment> getAll() {
-        List<Payment> payment = new ArrayList<Payment>();
+        List<Payment> paymentList = new ArrayList<Payment>();
         String login = SecurityUtils.getCurrentLogin();
-        payment = paymentRepository.findByLoginEquals(login);
-        return payment;
+        paymentList = paymentRepository.findByLoginEquals(login);
+        return paymentList;
     }
 
 }

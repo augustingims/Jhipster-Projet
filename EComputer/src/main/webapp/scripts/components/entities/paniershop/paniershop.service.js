@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('devbridgeApp')
-    .factory('paniershop', function ($resource, DateUtils) {
+    .factory('Paniershop', function ($resource, DateUtils) {
         return $resource('api/paniershop/:id', {}, {
             'query': { method: 'GET', isArray: true},
             'get': {

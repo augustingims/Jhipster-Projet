@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('devbridgeApp')
-    .controller('paymentController', function ($scope,$http, Payment, entity, $stateParams) {
+    .controller('paymentController', function ($scope,$http, Payment, entity, $stateParams, $rootScope) {
 
         $scope.payment = entity;
 
@@ -14,13 +14,19 @@ angular.module('devbridgeApp')
         $scope.load();
 
         var onSaveFinished = function (result) {
-            $scope.$emit('devbridgeApp:payment', result);
+           console.log(result);
         };
+
+        $rootScope.$on('devbridgeApp:prix', function(event, response) {
+            $scope.montant = response;
+        });
+
         $scope.pay = function () {
 
             if ($scope.payment.id != null) {
                 Payment.update($scope.payment, onSaveFinished);
             } else {
+                $scope.payment.montant = $scope.prix;
                 Payment.save($scope.payment, onSaveFinished);
             }
             $scope.payment = {};

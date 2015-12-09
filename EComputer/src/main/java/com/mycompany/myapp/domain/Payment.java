@@ -34,6 +34,9 @@ public class Payment implements Serializable {
     @Column(name = "annee")
     private String annee;
 
+    @Column(name = "montant")
+    private BigDecimal montant;
+
     @Column(name = "cardcv")
     private String cardcv;
 
@@ -96,6 +99,14 @@ public class Payment implements Serializable {
         this.login = login;
     }
 
+    public BigDecimal getMontant() {
+        return montant;
+    }
+
+    public void setMontant(BigDecimal montant) {
+        this.montant = montant;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -125,6 +136,7 @@ public class Payment implements Serializable {
             ", numbercard='" + numbercard + '\'' +
             ", mois='" + mois + '\'' +
             ", annee='" + annee + '\'' +
+            ", montant=" + montant +
             ", cardcv='" + cardcv + '\'' +
             ", login='" + login + '\'' +
             '}';

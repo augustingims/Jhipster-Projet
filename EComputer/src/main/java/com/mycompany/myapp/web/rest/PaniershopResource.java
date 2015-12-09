@@ -33,7 +33,7 @@ public class PaniershopResource {
     public Long create(@PathVariable Long image, @PathVariable BigDecimal prix) {
         Paniershop paniershop = new Paniershop();
         String currentLogin = SecurityUtils.getCurrentLogin();
-        List<Paniershop> listshop = paniershopRepository.findByImageEquals(image);
+        List<Paniershop> listshop = paniershopRepository.findByAuteurEquals(currentLogin);
           if(listshop.isEmpty()) {
               paniershop.setImage(image);
               paniershop.setPrix(prix);
